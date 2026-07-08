@@ -1,5 +1,5 @@
 {
-  "updated": "16:26",
+  "updated": "18:53",
   "jesse": {
     "goals": [
       { "time": "16:25", "id": "LORE-361", "title": "Cold-start users cannot get past Q1 into the app (dead place search)" },
@@ -13,6 +13,6 @@
       { "time": "08:12", "id": "LORE-221", "title": "Fine-tuned replies should scale style with voice register" },
       { "time": "14:04", "id": "LORE-312", "title": "Fold warmth rule into the SFT voice prompt (_voice_block)" }
     ],
-    "board": { "notStarted": 18, "inProgress": 4, "inReview": 0 }
+    "board": { "notStarted": 18, "inProgress": 3, "inReview": 1 }
   }
 }
