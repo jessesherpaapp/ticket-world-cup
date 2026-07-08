@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sherpa Ticket World Cup — Jesse vs Yusuf</title>
+<style>
+  :root{
+    --sky:#06140f; --pitch-a:#0f5136; --pitch-b:#0c4530; --chalk:#eaf3ee;
+    --jesse:#16c0a8; --yusuf:#f6b21b; --led:#ffcf4d; --led-dim:#5f5127;
+    --panel:#0a1f18; --panel-2:#0c261d; --line:rgba(234,243,238,.14);
+    --muted:#a6c2b6; --live:#ff4d4d;
+    --cond:'Arial Narrow','Helvetica Neue',Arial,sans-serif;
+    --sans:'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{
+    background:radial-gradient(120% 80% at 50% -10%, #0d2a20 0%, var(--sky) 60%), var(--sky);
+    color:var(--chalk); font-family:var(--sans);
+    padding:clamp(14px,3vw,34px); overflow-x:hidden;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+
+  .eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;
+    font-family:var(--cond);text-transform:uppercase;letter-spacing:.32em;
+    font-size:clamp(11px,1.6vw,13px);color:var(--muted);margin-bottom:16px;flex-wrap:wrap;text-align:center}
+  .live{display:inline-flex;align-items:center;gap:7px;color:var(--live);font-weight:700;letter-spacing:.2em}
+  .live .dot{width:9px;height:9px;border-radius:50%;background:var(--live);box-shadow:0 0 10px var(--live);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+
+  .board{background:linear-gradient(#050b08,#0a1611);border:1px solid var(--line);border-radius:16px;
+    box-shadow:0 24px 60px -24px #000, inset 0 1px 0 rgba(255,255,255,.05);
+    padding:clamp(16px,3vw,26px) clamp(14px,3vw,30px);
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(10px,2.5vw,26px)}
+  .side{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+  .jersey{width:clamp(58px,12vw,86px);height:clamp(58px,12vw,86px);border-radius:50%;
+    display:grid;place-items:center;font-family:var(--cond);font-weight:700;
+    font-size:clamp(26px,6vw,40px);color:#04120e;
+    box-shadow:0 8px 24px -8px #000, inset 0 -6px 14px rgba(0,0,0,.25)}
+  .jersey.j{background:radial-gradient(circle at 35% 28%, #6ff0df, var(--jesse))}
+  .jersey.y{background:radial-gradient(circle at 35% 28%, #ffd873, var(--yusuf))}
+  .tname{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-weight:700;
+    font-size:clamp(17px,3.6vw,26px);line-height:1;text-align:center}
+  .tsub{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center}
+  .flag{font-size:clamp(15px,3vw,20px)}
+  .center{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .score{display:flex;align-items:center;gap:clamp(8px,2vw,16px);
+    font-family:var(--cond);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+  .num{font-size:clamp(54px,15vw,104px);color:var(--led);
+    text-shadow:0 0 18px rgba(255,207,77,.45), 0 0 4px rgba(255,207,77,.8);min-width:.9em;text-align:center;
+    transition:transform .25s}
+  .num.lead{animation:glow 2.2s ease-in-out infinite}
+  .num.bump{transform:scale(1.35)}
+  @keyframes glow{0%,100%{text-shadow:0 0 18px rgba(255,207,77,.45),0 0 4px rgba(255,207,77,.8)}50%{text-shadow:0 0 30px rgba(255,207,77,.85),0 0 8px #fff}}
+  .dash{font-size:clamp(34px,8vw,60px);color:var(--led-dim)}
+  .clock{font-family:var(--cond);font-variant-numeric:tabular-nums;background:#02110c;border:1px solid var(--line);
+    border-radius:999px;padding:5px 16px;letter-spacing:.14em;color:var(--led);font-size:clamp(13px,2.4vw,16px);
+    display:inline-flex;gap:9px;align-items:center}
+  .clock .k{color:var(--muted);font-size:11px;letter-spacing:.22em}
+
+  .verdict{text-align:center;margin:22px auto 6px;font-family:var(--cond);text-transform:uppercase;
+    letter-spacing:.06em;font-weight:700;font-size:clamp(18px,4.4vw,30px);text-wrap:balance}
+  .verdict .hl{color:var(--jesse)} .verdict .hl.y{color:var(--yusuf)}
+  .verdict-sub{text-align:center;color:var(--muted);font-size:14px;margin-top:4px}
+
+  .pitch{position:relative;margin:22px auto 0;border-radius:14px;overflow:hidden;aspect-ratio:16/9;
+    border:2px solid rgba(234,243,238,.35);
+    background:repeating-linear-gradient(90deg,var(--pitch-a) 0 11.11%,var(--pitch-b) 11.11% 22.22%);
+    box-shadow:0 26px 60px -30px #000, inset 0 0 60px rgba(0,0,0,.35)}
+  .pitch .midline{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(234,243,238,.5);transform:translateX(-50%)}
+  .pitch .circle{position:absolute;top:50%;left:50%;width:26%;aspect-ratio:1;border:2px solid rgba(234,243,238,.5);border-radius:50%;transform:translate(-50%,-50%)}
+  .pitch .spot{position:absolute;top:50%;left:50%;width:6px;height:6px;border-radius:50%;background:rgba(234,243,238,.7);transform:translate(-50%,-50%)}
+  .pitch .box{position:absolute;top:50%;transform:translateY(-50%);width:13%;height:52%;border:2px solid rgba(234,243,238,.42)}
+  .pitch .box.l{left:0;border-left:none} .pitch .box.r{right:0;border-right:none}
+  .pitch .goal{position:absolute;top:50%;transform:translateY(-50%);width:2.4%;height:24%;border:2px solid rgba(234,243,238,.8)}
+  .pitch .goal.l{left:0;border-left:none} .pitch .goal.r{right:0;border-right:none}
+  .player{position:absolute;top:50%;transform:translate(-50%,-50%);text-align:center;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+  .player .kit{width:clamp(30px,6vw,44px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
+    font-family:var(--cond);font-weight:700;color:#04120e;font-size:clamp(15px,3.4vw,22px);margin:0 auto}
+  .player.j .kit{background:radial-gradient(circle at 35% 28%,#6ff0df,var(--jesse))}
+  .player.y .kit{background:radial-gradient(circle at 35% 28%,#ffd873,var(--yusuf))}
+  .player .tag{margin-top:5px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--chalk);
+    background:rgba(0,0,0,.45);padding:2px 7px;border-radius:999px;display:inline-block}
+  .ball{position:absolute;top:50%;transform:translate(-50%,-50%);width:clamp(14px,2.8vw,20px);aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#fff,#c7d2cc 70%,#8fa39a);box-shadow:0 4px 6px rgba(0,0,0,.5);
+    animation:roll 2.6s ease-in-out infinite;transition:left .6s ease}
+  @keyframes roll{0%,100%{margin-top:0}50%{margin-top:-8px}}
+
+  .stat{margin:26px auto 0}
+  .stat h3,.feed h3,.sheet h3{font-family:var(--cond);text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--muted);margin:0 0 12px;font-weight:700}
+  .poss{display:flex;height:34px;border-radius:999px;overflow:hidden;border:1px solid var(--line);font-family:var(--cond);font-weight:700;font-size:14px}
+  .poss .pj{background:var(--jesse);color:#04120e;display:flex;align-items:center;justify-content:flex-start;padding-left:14px;transition:width .6s ease}
+  .poss .py{background:var(--yusuf);color:#3a2900;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;transition:width .6s ease}
+  .poss-legend{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--muted);letter-spacing:.06em}
+
+  .sheet{margin:28px auto 0}
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  table.squad{width:100%;border-collapse:collapse;min-width:460px;font-variant-numeric:tabular-nums}
+  table.squad thead th{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-weight:700;
+    font-size:12px;color:var(--muted);padding:13px 14px;text-align:center;background:#050f0b;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.squad thead th.team{text-align:left} table.squad thead th.done{color:var(--led)}
+  table.squad td{padding:14px;text-align:center;border-bottom:1px solid var(--line);font-size:22px;font-family:var(--cond);font-weight:700}
+  table.squad tr:last-child td{border-bottom:none}
+  table.squad td.teamcell{text-align:left;font-size:15px;letter-spacing:.1em;text-transform:uppercase}
+  table.squad td.teamcell .chip{display:inline-flex;align-items:center;gap:9px}
+  table.squad td.teamcell .kitdot{width:22px;height:22px;border-radius:50%;font-size:11px;display:grid;place-items:center;color:#04120e;font-weight:700}
+  .kitdot.j{background:var(--jesse)} .kitdot.y{background:var(--yusuf)}
+  table.squad td.donecell{color:var(--led);background:rgba(255,207,77,.06)}
+  table.squad td.zero{color:#4d6459}
+  .sheet-note{margin-top:9px;font-size:11.5px;color:#7f978c;letter-spacing:.04em;text-align:center}
+
+  .feed{margin:28px auto 0}
+  .goal-card{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(var(--panel),var(--panel-2));
+    border:1px solid var(--line);border-left-width:4px;border-radius:12px;padding:14px 16px;margin-bottom:12px}
+  .goal-card.j{border-left-color:var(--jesse)} .goal-card.y{border-left-color:var(--yusuf)}
+  .minute{font-family:var(--cond);font-weight:700;font-variant-numeric:tabular-nums;font-size:20px;color:var(--led);min-width:52px}
+  .gbody{min-width:0}
+  .gline{font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-weight:700;font-size:15px;margin-bottom:3px}
+  .gline .who.j{color:var(--jesse)} .gline .who.y{color:var(--yusuf)}
+  .gid{font-size:12px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .gtitle{font-size:13.5px;color:#d4e6dd;margin-top:4px;line-height:1.45}
+  .empty-card{border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--muted);font-size:13.5px;text-align:center;background:rgba(255,255,255,.015)}
+
+  .foot{margin:30px auto 4px;text-align:center;color:var(--muted);font-size:12.5px;line-height:1.6}
+  .whistle{color:#7f978c;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
+
+  @media (max-width:560px){.board{gap:8px;padding:16px 10px}.tsub{display:none}}
+  @media (prefers-reduced-motion:reduce){.live .dot,.num.lead,.ball{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">
+    <span class="live"><span class="dot"></span>Live</span>
+    <span>Sherpa Ticket World Cup</span>
+    <span>Matchday · Jul 08</span>
+  </div>
+
+  <div class="board">
+    <div class="side">
+      <div class="jersey j">10</div>
+      <div><div class="tname">Jesse <span class="flag">🧭</span></div><div class="tsub">Team Founder</div></div>
+    </div>
+    <div class="center">
+      <div class="score">
+        <span class="num" id="sj">0</span><span class="dash">–</span><span class="num" id="sy">0</span>
+      </div>
+      <div class="clock"><span class="k">MIN</span><span id="minute">1'</span><span class="k" id="wall">--:--</span></div>
+    </div>
+    <div class="side">
+      <div class="jersey y">09</div>
+      <div><div class="tname"><span class="flag">🔬</span> Yusuf</div><div class="tsub">Team Fine-Tune</div></div>
+    </div>
+  </div>
+
+  <div class="verdict" id="verdict">Kickoff</div>
+  <div class="verdict-sub" id="verdictSub"></div>
+
+  <div class="pitch" aria-hidden="true">
+    <div class="midline"></div><div class="circle"></div><div class="spot"></div>
+    <div class="box l"></div><div class="box r"></div><div class="goal l"></div><div class="goal r"></div>
+    <div class="player j" style="left:26%"><div class="kit">10</div><div class="tag">Jesse</div></div>
+    <div class="player y" style="left:74%"><div class="kit">09</div><div class="tag">Yusuf</div></div>
+    <div class="ball" id="ball" style="left:50%"></div>
+  </div>
+
+  <div class="stat">
+    <h3>Goal Share Today</h3>
+    <div class="poss">
+      <div class="pj" id="pj" style="width:50%">50%</div>
+      <div class="py" id="py" style="width:50%">50%</div>
+    </div>
+    <div class="poss-legend"><span>▉ Jesse</span><span>Yusuf ▉</span></div>
+  </div>
+
+  <div class="sheet">
+    <h3>Squad Sheet — full ticket board</h3>
+    <div class="table-wrap">
+      <table class="squad">
+        <thead><tr>
+          <th class="team">Player</th><th>Not Started</th><th>In Progress</th><th>In Review</th><th class="done">⚽ Done Today</th>
+        </tr></thead>
+        <tbody id="squadBody"></tbody>
+      </table>
+    </div>
+    <div class="sheet-note">Not Started / In Progress / In Review = current board state. Done Today = goals in this match (Jul 08 only).</div>
+  </div>
+
+  <div class="feed">
+    <h3>Match Commentary — Goals (tickets closed today)</h3>
+    <div id="goals"></div>
+  </div>
+
+  <div class="foot">
+    Goals = Linear issues marked <strong>Done</strong> today (Jul 08).<br>
+    Live board — the score re-syncs with Linear on its own. Keep this tab open.
+    <div class="whistle" id="stamp">— Connecting… —</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KICKOFF_HOUR = 9;
+  var prevScore = {j:null,y:null};
+  function two(n){ return (n<10?'0':'')+n; }
+  function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+  function render(data){
+    var jg = (data.jesse&&data.jesse.goals)||[], yg = (data.yusuf&&data.yusuf.goals)||[];
+    var jb = (data.jesse&&data.jesse.board)||{}, yb = (data.yusuf&&data.yusuf.board)||{};
+    var sj = jg.length, sy = yg.length;
+
+    var elJ = document.getElementById('sj'), elY = document.getElementById('sy');
+    elJ.textContent = sj; elY.textContent = sy;
+    elJ.classList.toggle('lead', sj>sy); elY.classList.toggle('lead', sy>sj);
+    // goal bump animation when a score increases
+    if(prevScore.j!==null && sj>prevScore.j) bump(elJ);
+    if(prevScore.y!==null && sy>prevScore.y) bump(elY);
+    prevScore.j=sj; prevScore.y=sy;
+
+    var v=document.getElementById('verdict'), vs=document.getElementById('verdictSub');
+    if(sj>sy){ v.innerHTML='<span class="hl">Jesse</span> is on top'; vs.textContent='Leading by '+(sj-sy)+' with the day still young.'; }
+    else if(sy>sj){ v.innerHTML='<span class="hl y">Yusuf</span> takes the lead'; vs.textContent='Up by '+(sy-sj)+'. Jesse, the gap is on the board.'; }
+    else if(sj===0){ v.innerHTML='Scoreless <span class="hl">draw</span>'; vs.textContent='Nil-nil. First ticket to Done breaks the deadlock.'; }
+    else { v.innerHTML='All square'; vs.textContent='Level at '+sj+'–'+sy+'. Next goal decides it.'; }
+
+    var total=sj+sy, jpct=total?Math.round(sj/total*100):50, ypct=100-(total?jpct:50);
+    if(!total){jpct=50;ypct=50;}
+    document.getElementById('pj').style.width=jpct+'%'; document.getElementById('pj').textContent=jpct+'%';
+    document.getElementById('py').style.width=ypct+'%'; document.getElementById('py').textContent=ypct+'%';
+
+    document.getElementById('ball').style.left=(sj>sy?'34%':(sy>sj?'66%':'50%'));
+
+    var all=[];
+    jg.forEach(function(g){ all.push({who:'Jesse',cls:'j',time:g.time,id:g.id,title:g.title}); });
+    yg.forEach(function(g){ all.push({who:'Yusuf',cls:'y',time:g.time,id:g.id,title:g.title}); });
+    all.sort(function(a,b){ return String(b.time).localeCompare(String(a.time)); });
+    var host=document.getElementById('goals');
+    if(!all.length){ host.innerHTML='<div class="empty-card">No goals yet today. The stadium waits. First to move a ticket to Done gets the roar.</div>'; }
+    else { host.innerHTML=all.map(function(g){
+      return '<div class="goal-card '+g.cls+'"><div class="minute">'+esc(g.time)+'</div><div class="gbody">'+
+        '<div class="gline">⚽ GOAL — <span class="who '+g.cls+'">'+esc(g.who)+'</span></div>'+
+        '<div class="gid">'+esc(g.id)+'</div><div class="gtitle">'+esc(g.title)+'</div></div></div>';
+    }).join(''); }
+
+    var rows=[{cls:'j',kit:'10',name:'Jesse',b:jb,done:sj},{cls:'y',kit:'09',name:'Yusuf',b:yb,done:sy}];
+    document.getElementById('squadBody').innerHTML=rows.map(function(r){
+      function cell(n){ n=(n==null?0:n); return '<td'+(n===0?' class="zero"':'')+'>'+n+'</td>'; }
+      return '<tr><td class="teamcell"><span class="chip"><span class="kitdot '+r.cls+'">'+r.kit+'</span>'+r.name+'</span></td>'+
+        cell(r.b.notStarted)+cell(r.b.inProgress)+cell(r.b.inReview)+
+        '<td class="donecell'+(r.done===0?' zero':'')+'">'+r.done+'</td></tr>';
+    }).join('');
+
+    var n=new Date();
+    document.getElementById('stamp').textContent='— Synced '+(data.updated||(two(n.getHours())+':'+two(n.getMinutes())))+' · auto-updating —';
+  }
+
+  function bump(el){ el.classList.add('bump'); setTimeout(function(){ el.classList.remove('bump'); }, 300); }
+
+  function load(){
+    fetch('scores.json?t='+Date.now(),{cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(render)
+      .catch(function(){ /* keep last good render */ });
+  }
+  load(); setInterval(load, 60000);
+
+  function tick(){
+    var now=new Date();
+    document.getElementById('wall').textContent=two(now.getHours())+':'+two(now.getMinutes());
+    var mins=(now.getHours()-KICKOFF_HOUR)*60+now.getMinutes(), label;
+    if(mins<1) label="1'"; else if(mins<=90) label=mins+"'"; else label="90+"+(mins-90)+"'";
+    document.getElementById('minute').textContent=label;
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "updated": "10:25",
+  "jesse": {
+    "goals": [],
+    "board": { "notStarted": 44, "inProgress": 6, "inReview": 0 }
+  },
+  "yusuf": {
+    "goals": [
+      { "time": "06:12", "id": "LORE-221", "title": "Fine-tuned replies should scale style with voice register" }
+    ],
+    "board": { "notStarted": 18, "inProgress": 1, "inReview": 1 }
+  }
+}
