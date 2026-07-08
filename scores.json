@@ -1,5 +1,5 @@
 {
-  "updated": "14:08",
+  "updated": "14:22",
   "jesse": {
     "goals": [],
     "board": { "notStarted": 44, "inProgress": 6, "inReview": 0 }
@@ -9,6 +9,6 @@
       { "time": "08:12", "id": "LORE-221", "title": "Fine-tuned replies should scale style with voice register" },
       { "time": "14:04", "id": "LORE-312", "title": "Fold warmth rule into the SFT voice prompt (_voice_block)" }
     ],
-    "board": { "notStarted": 18, "inProgress": 2, "inReview": 0 }
+    "board": { "notStarted": 18, "inProgress": 3, "inReview": 0 }
   }
 }
