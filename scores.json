@@ -1,8 +1,12 @@
 {
-  "updated": "14:47",
+  "updated": "16:26",
   "jesse": {
-    "goals": [],
-    "board": { "notStarted": 44, "inProgress": 6, "inReview": 0 }
+    "goals": [
+      { "time": "16:25", "id": "LORE-361", "title": "Cold-start users cannot get past Q1 into the app (dead place search)" },
+      { "time": "16:25", "id": "LORE-362", "title": "Google Place photos not rendering on venue cards" },
+      { "time": "16:25", "id": "LORE-363", "title": "Pre-deploy gate must walk a cold-start user end to end before promote" }
+    ],
+    "board": { "notStarted": 41, "inProgress": 6, "inReview": 0 }
   },
   "yusuf": {
     "goals": [
