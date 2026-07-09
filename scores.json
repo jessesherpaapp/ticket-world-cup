@@ -1,5 +1,5 @@
 {
-  "updated": "11:14",
+  "updated": "12:09",
   "jesse": {
     "goals": [
       { "time": "10:54", "id": "LORE-293", "title": "Nail the opening feed hierarchy for ad_hoc/seeker (decide moment first)" },
@@ -8,7 +8,11 @@
     "board": { "notStarted": 40, "inProgress": 4, "inReview": 0 }
   },
   "yusuf": {
-    "goals": [],
-    "board": { "notStarted": 18, "inProgress": 5, "inReview": 0 }
+    "goals": [
+      { "time": "11:47", "id": "LORE-377", "title": "Run the 1.2.2 acceptance walk on the live site (gates the announce)" },
+      { "time": "12:05", "id": "LORE-258", "title": "Ask Sherpa must return 3 saveable place_ids by default" },
+      { "time": "12:05", "id": "LORE-367", "title": "Bug-testing pass on the current LORE build" }
+    ],
+    "board": { "notStarted": 17, "inProgress": 3, "inReview": 0 }
   }
 }
