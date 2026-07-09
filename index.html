@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sherpa Ticket World Cup — Jesse vs Yusuf</title>
+<title>Sherpa Ticket World Cup — Bug Catcher vs The Fine Tuner</title>
 <style>
   :root{
     --sky:#06140f; --pitch-a:#0f5136; --pitch-b:#0c4530; --chalk:#eaf3ee;
@@ -134,13 +134,13 @@
   <div class="eyebrow">
     <span class="live"><span class="dot"></span>Live</span>
     <span>Sherpa Ticket World Cup</span>
-    <span>Matchday · Jul 08</span>
+    <span>Matchday · Jul 09</span>
   </div>
 
   <div class="board">
     <div class="side">
       <div class="jersey j">10</div>
-      <div><div class="tname">Jesse <span class="flag">🧭</span></div><div class="tsub">Team Founder</div></div>
+      <div><div class="tname">Bug Catcher <span class="flag">🐛</span></div><div class="tsub">Jesse</div></div>
     </div>
     <div class="center">
       <div class="score">
@@ -150,7 +150,7 @@
     </div>
     <div class="side">
       <div class="jersey y">09</div>
-      <div><div class="tname"><span class="flag">🔬</span> Yusuf</div><div class="tsub">Team Fine-Tune</div></div>
+      <div><div class="tname"><span class="flag">🔬</span> The Fine Tuner</div><div class="tsub">Yusuf</div></div>
     </div>
   </div>
 
@@ -160,8 +160,8 @@
   <div class="pitch" aria-hidden="true">
     <div class="midline"></div><div class="circle"></div><div class="spot"></div>
     <div class="box l"></div><div class="box r"></div><div class="goal l"></div><div class="goal r"></div>
-    <div class="player j" style="left:26%"><div class="kit">10</div><div class="tag">Jesse</div></div>
-    <div class="player y" style="left:74%"><div class="kit">09</div><div class="tag">Yusuf</div></div>
+    <div class="player j" style="left:26%"><div class="kit">10</div><div class="tag">Bug Catcher</div></div>
+    <div class="player y" style="left:74%"><div class="kit">09</div><div class="tag">The Fine Tuner</div></div>
     <div class="ball" id="ball" style="left:50%"></div>
   </div>
 
@@ -171,7 +171,7 @@
       <div class="pj" id="pj" style="width:50%">50%</div>
       <div class="py" id="py" style="width:50%">50%</div>
     </div>
-    <div class="poss-legend"><span>▉ Jesse</span><span>Yusuf ▉</span></div>
+    <div class="poss-legend"><span>▉ Bug Catcher</span><span>The Fine Tuner ▉</span></div>
   </div>
 
   <div class="sheet">
@@ -184,7 +184,7 @@
         <tbody id="squadBody"></tbody>
       </table>
     </div>
-    <div class="sheet-note">Not Started / In Progress / In Review = current board state. Done Today = goals in this match (Jul 08 only).</div>
+    <div class="sheet-note">Not Started / In Progress / In Review = current board state. Done Today = goals in this match (Jul 09 only).</div>
   </div>
 
   <div class="feed">
@@ -193,7 +193,7 @@
   </div>
 
   <div class="foot">
-    Goals = Linear issues marked <strong>Done</strong> today (Jul 08).<br>
+    Goals = Linear issues marked <strong>Done</strong> today (Jul 09).<br>
     Live board — the score re-syncs with Linear on its own. Keep this tab open.
     <div class="whistle" id="stamp">— Connecting… —</div>
   </div>
@@ -220,8 +220,8 @@
     prevScore.j=sj; prevScore.y=sy;
 
     var v=document.getElementById('verdict'), vs=document.getElementById('verdictSub');
-    if(sj>sy){ v.innerHTML='<span class="hl">Jesse</span> is on top'; vs.textContent='Leading by '+(sj-sy)+' with the day still young.'; }
-    else if(sy>sj){ v.innerHTML='<span class="hl y">Yusuf</span> takes the lead'; vs.textContent='Up by '+(sy-sj)+'. Jesse, the gap is on the board.'; }
+    if(sj>sy){ v.innerHTML='<span class="hl">Bug Catcher</span> is on top'; vs.textContent='Leading by '+(sj-sy)+' with the day still young.'; }
+    else if(sy>sj){ v.innerHTML='<span class="hl y">The Fine Tuner</span> takes the lead'; vs.textContent='Up by '+(sy-sj)+'. Bug Catcher, the gap is on the board.'; }
     else if(sj===0){ v.innerHTML='Scoreless <span class="hl">draw</span>'; vs.textContent='Nil-nil. First ticket to Done breaks the deadlock.'; }
     else { v.innerHTML='All square'; vs.textContent='Level at '+sj+'–'+sy+'. Next goal decides it.'; }
 
@@ -233,8 +233,8 @@
     document.getElementById('ball').style.left=(sj>sy?'34%':(sy>sj?'66%':'50%'));
 
     var all=[];
-    jg.forEach(function(g){ all.push({who:'Jesse',cls:'j',time:g.time,id:g.id,title:g.title}); });
-    yg.forEach(function(g){ all.push({who:'Yusuf',cls:'y',time:g.time,id:g.id,title:g.title}); });
+    jg.forEach(function(g){ all.push({who:'Bug Catcher',cls:'j',time:g.time,id:g.id,title:g.title}); });
+    yg.forEach(function(g){ all.push({who:'The Fine Tuner',cls:'y',time:g.time,id:g.id,title:g.title}); });
     all.sort(function(a,b){ return String(b.time).localeCompare(String(a.time)); });
     var host=document.getElementById('goals');
     if(!all.length){ host.innerHTML='<div class="empty-card">No goals yet today. The stadium waits. First to move a ticket to Done gets the roar.</div>'; }
@@ -244,7 +244,7 @@
         '<div class="gid">'+esc(g.id)+'</div><div class="gtitle">'+esc(g.title)+'</div></div></div>';
     }).join(''); }
 
-    var rows=[{cls:'j',kit:'10',name:'Jesse',b:jb,done:sj},{cls:'y',kit:'09',name:'Yusuf',b:yb,done:sy}];
+    var rows=[{cls:'j',kit:'10',name:'Bug Catcher',b:jb,done:sj},{cls:'y',kit:'09',name:'The Fine Tuner',b:yb,done:sy}];
     document.getElementById('squadBody').innerHTML=rows.map(function(r){
       function cell(n){ n=(n==null?0:n); return '<td'+(n===0?' class="zero"':'')+'>'+n+'</td>'; }
       return '<tr><td class="teamcell"><span class="chip"><span class="kitdot '+r.cls+'">'+r.kit+'</span>'+r.name+'</span></td>'+

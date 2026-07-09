@@ -1,19 +1,11 @@
 {
   "updated": "07:17",
   "jesse": {
-    "goals": [
-      { "time": "16:25", "id": "LORE-361", "title": "Cold-start users cannot get past Q1 into the app (dead place search)" },
-      { "time": "16:25", "id": "LORE-362", "title": "Google Place photos not rendering on venue cards" },
-      { "time": "16:25", "id": "LORE-363", "title": "Pre-deploy gate must walk a cold-start user end to end before promote" }
-    ],
+    "goals": [],
     "board": { "notStarted": 41, "inProgress": 5, "inReview": 0 }
   },
   "yusuf": {
-    "goals": [
-      { "time": "08:12", "id": "LORE-221", "title": "Fine-tuned replies should scale style with voice register" },
-      { "time": "14:04", "id": "LORE-312", "title": "Fold warmth rule into the SFT voice prompt (_voice_block)" },
-      { "time": "23:05", "id": "LORE-297", "title": "Structured eval suite: one run scores a checkpoint on every axis" }
-    ],
+    "goals": [],
     "board": { "notStarted": 18, "inProgress": 4, "inReview": 0 }
   }
 }
