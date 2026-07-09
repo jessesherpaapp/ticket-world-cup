@@ -1,5 +1,5 @@
 {
-  "updated": "23:01",
+  "updated": "07:17",
   "jesse": {
     "goals": [
       { "time": "16:25", "id": "LORE-361", "title": "Cold-start users cannot get past Q1 into the app (dead place search)" },
@@ -11,8 +11,9 @@
   "yusuf": {
     "goals": [
       { "time": "08:12", "id": "LORE-221", "title": "Fine-tuned replies should scale style with voice register" },
-      { "time": "14:04", "id": "LORE-312", "title": "Fold warmth rule into the SFT voice prompt (_voice_block)" }
+      { "time": "14:04", "id": "LORE-312", "title": "Fold warmth rule into the SFT voice prompt (_voice_block)" },
+      { "time": "23:05", "id": "LORE-297", "title": "Structured eval suite: one run scores a checkpoint on every axis" }
     ],
-    "board": { "notStarted": 18, "inProgress": 4, "inReview": 1 }
+    "board": { "notStarted": 18, "inProgress": 4, "inReview": 0 }
   }
 }
