@@ -1,5 +1,5 @@
 {
-  "updated": "15:14",
+  "updated": "16:14",
   "jesse": {
     "goals": [
       { "time": "10:54", "id": "LORE-293", "title": "Nail the opening feed hierarchy for ad_hoc/seeker (decide moment first)" },
@@ -16,6 +16,6 @@
       { "time": "12:05", "id": "LORE-367", "title": "Bug-testing pass on the current LORE build" },
       { "time": "14:50", "id": "LORE-311", "title": "Voice top-up for wellness and culture (v9.1 register pairs)" }
     ],
-    "board": { "notStarted": 16, "inProgress": 2, "inReview": 0 }
+    "board": { "notStarted": 15, "inProgress": 3, "inReview": 0 }
   }
 }
