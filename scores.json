@@ -1,18 +1,21 @@
 {
-  "updated": "12:09",
+  "updated": "15:14",
   "jesse": {
     "goals": [
       { "time": "10:54", "id": "LORE-293", "title": "Nail the opening feed hierarchy for ad_hoc/seeker (decide moment first)" },
-      { "time": "10:54", "id": "LORE-370", "title": "Recommendation engine returns no venues for any city except New York" }
+      { "time": "10:54", "id": "LORE-370", "title": "Recommendation engine returns no venues for any city except New York" },
+      { "time": "14:50", "id": "LORE-384", "title": "Jesse voice pass: approve the identity answers and solo register direction" },
+      { "time": "14:50", "id": "LORE-385", "title": "Final check: the regenerated identity answers" }
     ],
-    "board": { "notStarted": 40, "inProgress": 4, "inReview": 0 }
+    "board": { "notStarted": 41, "inProgress": 4, "inReview": 0 }
   },
   "yusuf": {
     "goals": [
       { "time": "11:47", "id": "LORE-377", "title": "Run the 1.2.2 acceptance walk on the live site (gates the announce)" },
       { "time": "12:05", "id": "LORE-258", "title": "Ask Sherpa must return 3 saveable place_ids by default" },
-      { "time": "12:05", "id": "LORE-367", "title": "Bug-testing pass on the current LORE build" }
+      { "time": "12:05", "id": "LORE-367", "title": "Bug-testing pass on the current LORE build" },
+      { "time": "14:50", "id": "LORE-311", "title": "Voice top-up for wellness and culture (v9.1 register pairs)" }
     ],
-    "board": { "notStarted": 17, "inProgress": 3, "inReview": 0 }
+    "board": { "notStarted": 16, "inProgress": 2, "inReview": 0 }
   }
 }
