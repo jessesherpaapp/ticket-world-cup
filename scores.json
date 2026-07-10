@@ -1,17 +1,18 @@
 {
-  "updated": "09:14",
+  "updated": "09:44",
   "jesse": {
     "goals": [
       { "time": "07:38", "id": "LORE-313", "title": "Recommendations surface places everyone already knows (no fame ceiling on Ask or mobile)" },
       { "time": "07:38", "id": "LORE-360", "title": "Ask Sherpa serves a reply about a different place than the card it shows" },
       { "time": "07:39", "id": "LORE-315", "title": "LORE 1.2 — onboarding refactor + quality fixes + latest model" }
     ],
-    "board": { "notStarted": 45, "inProgress": 4, "inReview": 0 }
+    "board": { "notStarted": 49, "inProgress": 4, "inReview": 0 }
   },
   "yusuf": {
     "goals": [
-      { "time": "07:39", "id": "LORE-257", "title": "Ask Sherpa intent: handle greetings/smalltalk and cross-city search" }
+      { "time": "07:39", "id": "LORE-257", "title": "Ask Sherpa intent: handle greetings/smalltalk and cross-city search" },
+      { "time": "09:37", "id": "LORE-383", "title": "Run the full 1.3 acceptance walk: every tab, every gate, Ask Sherpa deep (gates the announce)" }
     ],
-    "board": { "notStarted": 14, "inProgress": 3, "inReview": 0 }
+    "board": { "notStarted": 14, "inProgress": 2, "inReview": 0 }
   }
 }
