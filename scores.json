@@ -1,11 +1,11 @@
 {
-  "updated": "06:53",
+  "updated": "07:45",
   "jesse": {
     "goals": [],
-    "board": { "notStarted": 41, "inProgress": 4, "inReview": 0 }
+    "board": { "notStarted": 44, "inProgress": 4, "inReview": 0 }
   },
   "yusuf": {
     "goals": [],
-    "board": { "notStarted": 15, "inProgress": 3, "inReview": 0 }
+    "board": { "notStarted": 14, "inProgress": 3, "inReview": 0 }
   }
 }
